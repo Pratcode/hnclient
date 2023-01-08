@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1><center>Post View</center></h1>
+<div class="container col-6 p-lg-5 bg-warning text-dark rounded">
+    <div class="container">
+        <article>
+            <h4 class="text-success">title :</h4><p class="lead">{{ title }}</p>
+        </article>
+        {% if url %}
+        <div class="container col-15 p-lg-2 bg-white text-dark rounded">
+        <article>         
+                <h4 class="text-success">url :</h4><p class="lead"><a href="{{ url }}">{{ url }}</a></p>
+                <a href="{{ url }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">Open in New Tab</a>
+        </article>
+        </div>
+        <br>
+        {% endif %}
+        {% if text %}
+        <div class="container col-15 p-lg-6 bg-white text-dark rounded">
+        <article>  
+                <h4 class="text-success">text :</h4>
+                <pre class="lead" style="white-space: pre-wrap; word-wrap: break-word; overflow-x: auto;">{{ text|linebreaks }}</pre>
+        </article>
+        </div>
+        <br>
+        {% endif %}
+        <article>
+        <b><h6 class="text-success">author :</h6></b>
+        <form action="{% url 'user' %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" value="{{ author }}" name="username">
+            <button type="submit" class="btn btn-light  btn-sm"><em>{{ author }}</em></button>
+        </form>  
+        </article>
+        <br>
+        {% for comment in children %}
+        <div class="container col-16 p-lg-4 bg-white rounded">
+            <pre style="white-space: pre-wrap; word-wrap: break-word; overflow-x: auto;">{{ comment.text|linebreaks }}</pre>
+            <em class="text-primary">{{ comment.author }}</em>
+        </div>
+        <br>
+        {% endfor %}
+        <a href="{% url 'home' %}" class="btn btn-primary btn-sm">Back</a> 
+    </div>   
+</div>
+{% endblock %}

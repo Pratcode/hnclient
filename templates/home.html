@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1><center>Latest</center></h1>
+    {% if messages %}
+        <div class="container col-5 p-lg-2 alert alert-info" role="alert">
+        {% for message in messages %}
+        <h5>{{ message }}</h5>
+        {% endfor %}
+        </div>
+    {% endif %}
+    {% for Post in List_hits %}
+    <div class="container col-5 p-lg-4 bg-warning text-dark rounded ">
+        <article>
+                <h4 class="text-success">title :</h4><p class="lead">{{ Post.title }}</p>
+        </article>
+        {% if Post.url %}
+        <div class="container col-15 p-lg-2 bg-white text-dark rounded">
+        <article>
+                <h4 class="text-success">url :</h4><p class="lead"><a href="{{ Post.url }}">{{ Post.url|slice:"0:80" }}.....</a></p>
+                <a href="{{ Post.url }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">Open in New Tab</a>    
+        </article>
+        </div>
+        <br>
+        {% endif %} 
+        {% if Post.story_text %}
+        <div class="container col-15 p-lg-2 bg-white text-dark rounded">
+        <article>
+                <h4 class="text-success">story_text :</h4>
+                <pre class="lead" style="white-space: pre-wrap; word-wrap: 
+                break-word; overflow-x: auto;">{{ Post.story_text|slice:"0:80" }}.....</pre>
+        </article>
+        </div>
+        <br>
+        {% endif %}
+        <article>
+        <b><h6 class="text-success">author :</h6></b>
+        <form action="{% url 'user' %}" method="post">
+                {% csrf_token %}
+                <input type="hidden" value="{{ Post.author }}" name="username">
+                <button type="submit" class="btn btn-light  btn-sm"><em>{{ Post.author }}</em></button>
+        </form>
+        </article>
+        <br>
+        <form action="{% url 'view_post' %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" value="{{ Post.objectID }}" name="objectID">
+            <button type="submit" class="btn btn-primary">Open Post</button>
+        </form>
+    </div>
+    <br>
+    {% endfor %} 
+{% endblock %}
+

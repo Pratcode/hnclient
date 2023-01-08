@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1><center>User Details</center></h1>
+<div class="container col-6 p-lg-5 bg-warning text-dark rounded">
+    <div class="container">
+            <h4 class="text-success">username :</h4><p class="lead">{{ username }}</p>
+            <h4 class="text-success">about :</h4><p class="lead">{{ about }}</p>
+            <h4 class="text-success">karma :</h4><p class="lead">{{ karma }}</p>
+    </div>
+</div>
+{% endblock %}
