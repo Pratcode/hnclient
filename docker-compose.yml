@@ -18,3 +18,8 @@ nginx:
     depends_on:
       - web
 
+redis:
+    image: redis
+    depends_on:
+      -web
+
