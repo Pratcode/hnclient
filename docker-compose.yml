@@ -2,24 +2,34 @@ version: '3.8'
 
 services:
   web:
-    build: ./app
-    command: bash -c "python manage.py makemigrations && python manage.py migrate && gunicorn myproject.wsgi:application --bind 0.0.0.0:8000"
+    build: ./hnclient
+    command: bash -c "gunicorn myproject.wsgi:application --bind 0.0.0.0:8000"
     volumes:
       - .:/app/
     ports:
       - 8000:8000
+    networks:
+      - front-end:
 
-nginx:
-    build: ./nginx
-    ports:
-      - "80:80"
-    volumes:
-      - ./static:/static
-    depends_on:
-      - web
+  nginx:
+      build: ./nginx
+      ports:
+        - "80:80"
+      volumes:
+        - ./static:/static
+      depends_on:
+        - web
+      networks:
+        - back-end:
 
-redis:
-    image: redis
-    depends_on:
-      -web
+  redis:
+      image: redis
+      depends_on:
+        - web
+      networks:
+        - back-end:
+
+networks:
+  front-end:
+  back-end:
 
