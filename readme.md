@@ -1,12 +1,43 @@
-pip install requests = library
+### Utilises API which built on top of Algolia Search's API for Hacker News.
+
+## to get latest posts-
+
+Sorted by date, more recent first
+```
+GET http://hn.algolia.com/api/v1/search_by_date?query=...
+```
+
+## to get perticular user-
+
+Users
+```
+GET http://hn.algolia.com/api/v1/users/:username
+```
+## and to get items by id-
+
+Items
+```
+GET http://hn.algolia.com/api/v1/items/:id
+```
+Requests library
+
+> pip install requests
 
 
-sudo apt install net-tools
-check ip address > sudo ifconfig
+check ip address -
+> sudo apt install net-tools
 
-python manage.py runserver 192.168.184.38:8000
-or public ip address works > 47.247.196.100
+now to check it -
+> sudo ifconfig
 
-for installing radis > pip install redis
 
-pip3 install -r requirements.txt
+for installing radis 
+
+> pip install redis
+
+
+to install requirements- 
+
+> pip3 install -r requirements.txt
+
+
