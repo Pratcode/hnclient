@@ -15,8 +15,6 @@ services:
 
   redis:
     image: redis
-    depends_on:
-      - web
     networks:
       - back-end
 
