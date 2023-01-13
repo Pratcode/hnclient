@@ -17,36 +17,36 @@ The search backend is implemented using Algolia instant search engine.
 
 ## Instructions 
 
-**to indivisually  install requirements**- 
+**to indivisually  install requirements**
 ```
  pip3 install -r requirements.txt
 ```
-**django runserver**-
+**django runserver**
 ```
 python manage.py runserver
 ```
-**create docker image using single dockerfile**-
+**create docker image using single dockerfile**
 ```
 sudo docker build -t image_name .
 ```
-**run it**-
+**run it**
 ```
 sudo docker run -p 8000:8000 image_name
 ```
-**running gunicorn server**-
+**running gunicorn server**
 ```
 gunicorn projectname.wsgi:application --bind 0.0.0.0:8000 
 ```
-**to build images via docker compose**-
+**to build images via docker compose**
 ```
 sudo docker compose build
 ```
-**to run docker images**-
+**to run docker images**
 ```
 sudo docker compose up
 ```
 
-## Known issues-
+## Known issues
 1. Its been hard to parse paragraf tags comming from api, i have used django 
 template filters and other things to make it parse, but i don't know yet
 what more can be done.
