@@ -5,7 +5,8 @@ import json
 from datetime import timedelta
 from django.contrib import messages
 
-redis_data = redis.Redis.from_url('rediss://red-ces58ckgqg4dp7osntrg:IoErEp3b89kSifhHQZuRrZ7sKloq0r9M@oregon-redis.render.com:6379')
+# redis_data = redis.Redis.from_url('rediss://red-ces58ckgqg4dp7osntrg:IoErEp3b89kSifhHQZuRrZ7sKloq0r9M@oregon-redis.render.com:6379')
+redis_data = redis.Redis(host='172.18.0.2', port=6379, db=0)
 
 # Create your views here.
 def home(request):
