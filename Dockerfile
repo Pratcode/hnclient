@@ -17,4 +17,4 @@ COPY . /app
 EXPOSE 8000
 
 # run the gunicorn server
-CMD ["gunicorn", "--bind", ":8000", "testproject.wsgi:application"]
+CMD ["gunicorn", "--bind", ":8000", "hnclient.wsgi:application"]
