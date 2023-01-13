@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   web:
-    build: ./hnclient
+    build: .
     command: gunicorn myproject.wsgi:application --bind 0.0.0.0:8000
     volumes:
       - .:/app/
@@ -11,27 +11,27 @@ services:
     depends_on:
       - redis
     networks:
-      - back-end:
+      - back-end
 
   redis:
-      image: redis
-      depends_on:
-        - web
-      networks:
-        - back-end:
+    image: redis
+    depends_on:
+      - web
+    networks:
+      - back-end
 
   nginx:
-      build: ./nginx
-      ports:
-        - "80:80"
-      volumes:
-        - ./nginx/nginx.conf:/etc/nginx/conf.d/nginx.conf
-        - ./static:/static
-      depends_on:
-        - web
-      networks:
-        - front-end:
-        - back-end:
+    build: ./nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/nginx.conf
+      - ./static:/static
+    depends_on:
+      - web
+    networks:
+      - front-end
+      - back-end
 
 networks:
   front-end:
