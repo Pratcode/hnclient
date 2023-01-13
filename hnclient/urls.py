@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from hnapi import views
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -23,3 +24,5 @@ urlpatterns = [
     path('view_post/', views.view_post, name='view_post'),
     path('user/', views.user, name='user'),
 ]
+
+urlpatterns += staticfiles_urlpatterns()
