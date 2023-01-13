@@ -55,4 +55,4 @@ what more can be done.
 and my lack of knowledge this portion.
 
 3. Redis cache only helps in lastest posts, we have to still have to
-request server to get perticular post.
+request server in case of getting perticular post.
