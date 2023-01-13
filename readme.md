@@ -16,7 +16,6 @@ The search backend is implemented using Algolia instant search engine.
 ## Explainatory diagram
 
 ![Alt text](./Diagram.svg)
-<img src="./Diagram.svg">
 
 ## Instructions 
 
