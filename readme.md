@@ -46,22 +46,13 @@ sudo docker compose build
 sudo docker compose up
 ```
 
-**to get latest posts** -
+## Known issues-
+1. Its been hard to parse paragraf tags comming from api, i have used django 
+template filters and other things to make it parse, but i don't know yet
+what more can be done.
 
-Sorted by date, more recent first
-```
-GET http://hn.algolia.com/api/v1/search_by_date?query=...
-```
+2. UI is still not perfect since i didn't used much of frontend technologies,
+and my lack of knowledge this portion.
 
- **to get perticular user** -
-
-Users
-```
-GET http://hn.algolia.com/api/v1/users/:username
-```
-**and to get items by id** -
-
-Items
-```
-GET http://hn.algolia.com/api/v1/items/:id
-```
+3. Redis cache only helps in lastest posts, we have to still have to
+request server to get perticular post.
