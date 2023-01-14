@@ -35,9 +35,10 @@ activating --
 ```
 source env/bin/activate
 ```
-**for installing djnago**--
+**for installing djnago**
+```
 pip install django
-
+```
 **to install docker**
 
 install curl-
