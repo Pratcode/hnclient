@@ -15,7 +15,7 @@ The search backend is implemented using Algolia instant search engine.
 
 ## Explainatory diagram
 
-![Diagram.png](<https://github.com/Pratcode/hnclient/blob/master/Diagram.png>)
+![Diagram.png](./Diagram.png)
 
 ## Instructions 
 
