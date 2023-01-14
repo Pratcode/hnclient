@@ -19,13 +19,13 @@ The search backend is implemented using Algolia instant search engine.
 
 ## Instructions 
 
-**python 3.8**
+**Python 3.8**
 ```
 sudo apt install python3-pip
 
 sudo apt install python3.8-venv
 ```
-**venv**
+**Venv**
 
 creating --
 ```
@@ -36,7 +36,7 @@ activating --
 source env/bin/activate
 ```
 
-**to install docker**
+**To install docker**
 
 install curl-
 ```
@@ -49,13 +49,13 @@ curl -fsSL https://get.docker.com -o get-docker.sh
 sudo sh get-docker.sh
 ```
 
-**installing Docker Compose standalone**
+**Installing Docker Compose standalone**
 ```
 sudo curl -SL https://github.com/docker/compose/releases/download/v2.15.1/docker-compose-linux-x86_64 -o /usr/local/bin/docker-compose
 ```
 and give the su permission.
 
-**apply executable permissons**
+**Apply executable permissons**
 ```
 sudo chmod +x /user/local/bin/docker-compose
 ```
@@ -68,53 +68,53 @@ for example -
 docker-compose --version
 ```
 
-**to indivisually  install requirements**
+**To indivisually  install requirements**
 ```
  pip3 install -r requirements.txt
 ```
 
-**create docker image using single dockerfile**
+**Create docker image using single dockerfile**
 ```
 sudo docker build -t image_name .
 ```
-**run it**
+**Run it**
 ```
 sudo docker run -p 8000:8000 image_name
 ```
-**running gunicorn server**
+**Running gunicorn server**
 ```
 gunicorn projectname.wsgi:application --bind 0.0.0.0:8000 
 ```
-**to build images via docker compose**
+**To build images via docker compose**
 ```
 sudo docker compose build
 ```
-**to run docker images**
+**To run docker images**
 ```
 sudo docker compose up
 ```
 
 # Normal installation
 
-**for installing djnago**
+**For installing djnago**
 ```
 pip install django
 ```
-**install request library**
+**Install request library**
 ```
 pip install requests = library
 ```
 
-**installing redis library**
+**Installing redis library**
 ```
 pip install redis
 ```
 
-**install gunicorn**
+**Install gunicorn**
 ```
 pip install gunicorn
 ```
-**django runserver**
+**Django runserver**
 ```
 python manage.py runserver
 ```
