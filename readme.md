@@ -48,6 +48,26 @@ curl -fsSL https://get.docker.com -o get-docker.sh
 
 sudo sh get-docker.sh
 ```
+
+**installing Docker Compose standalone**
+```
+sudo curl -SL https://github.com/docker/compose/releases/download/v2.15.1/docker-compose-linux-x86_64 -o /usr/local/bin/docker-compose
+```
+and give the su permission.
+
+**apply executable permissons**
+```
+sudo chmod +x /user/local/bin/docker-compose
+```
+Compose standalone uses the -compose syntax instead of the current standard syntax compose.
+
+**Test and execute compose commands using docker-compose**
+
+for example -
+```
+docker-compose --version
+```
+
 **to indivisually  install requirements**
 ```
  pip3 install -r requirements.txt
