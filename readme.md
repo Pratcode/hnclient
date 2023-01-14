@@ -15,36 +15,41 @@ The search backend is implemented using Algolia instant search engine.
 
 ## Explainatory diagram
 
-![Diagram.png](./Diagram.png)
+![Diagram.svg](./Diagram.svg)
 
 ## Instructions 
 
 **python 3.8**
-
+```
 sudo apt install python3-pip
 
 sudo apt install python3.8-venv
-
+```
 **venv**
 
 creating --
+```
 python3 -m venv env
-
+```
 activating --
+```
 source env/bin/activate
-
+```
 **for installing djnago**--
 pip install django
 
 **to install docker**
 
 install curl-
-> sudo apt install curl
-
+```
+sudo apt install curl
+```
 convineint script-
-> curl -fsSL https://get.docker.com -o get-docker.sh
-> sudo sh get-docker.sh
+```
+curl -fsSL https://get.docker.com -o get-docker.sh
 
+sudo sh get-docker.sh
+```
 **to indivisually  install requirements**
 ```
  pip3 install -r requirements.txt
