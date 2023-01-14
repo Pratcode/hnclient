@@ -20,18 +20,21 @@ The search backend is implemented using Algolia instant search engine.
 ## Instructions 
 
 **Python 3.8**
+
 ```
 sudo apt install python3-pip
-
+```
+```
 sudo apt install python3.8-venv
 ```
+
 **Venv**
 
-creating --
+creating-
 ```
 python3 -m venv env
 ```
-activating --
+activating-
 ```
 source env/bin/activate
 ```
@@ -42,28 +45,32 @@ install curl-
 ```
 sudo apt install curl
 ```
-convineint script-
+get convineint script using curl-
 ```
 curl -fsSL https://get.docker.com -o get-docker.sh
-
+```
+execute the script-
+```
 sudo sh get-docker.sh
 ```
 
 **Installing Docker Compose standalone**
+
 ```
 sudo curl -SL https://github.com/docker/compose/releases/download/v2.15.1/docker-compose-linux-x86_64 -o /usr/local/bin/docker-compose
 ```
-and give the su permission.
+give the sudo permission to get it.
 
 **Apply executable permissons**
 ```
 sudo chmod +x /user/local/bin/docker-compose
 ```
-Compose standalone uses the -compose syntax instead of the current standard syntax compose.
+Compose standalone uses the -compose syntax instead of 
+the current standard syntax compose.
 
 **Test and execute compose commands using docker-compose**
 
-for example -
+for example-
 ```
 docker-compose --version
 ```
@@ -72,7 +79,6 @@ docker-compose --version
 ```
  pip3 install -r requirements.txt
 ```
-
 **Create docker image using single dockerfile**
 ```
 sudo docker build -t image_name .
@@ -94,7 +100,7 @@ sudo docker compose build
 sudo docker compose up
 ```
 
-# Normal installation
+## Normal installation
 
 **For installing djnago**
 ```
@@ -104,12 +110,10 @@ pip install django
 ```
 pip install requests = library
 ```
-
 **Installing redis library**
 ```
 pip install redis
 ```
-
 **Install gunicorn**
 ```
 pip install gunicorn
