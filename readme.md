@@ -35,10 +35,7 @@ activating --
 ```
 source env/bin/activate
 ```
-**for installing djnago**
-```
-pip install django
-```
+
 **to install docker**
 
 install curl-
@@ -55,10 +52,7 @@ sudo sh get-docker.sh
 ```
  pip3 install -r requirements.txt
 ```
-**django runserver**
-```
-python manage.py runserver
-```
+
 **create docker image using single dockerfile**
 ```
 sudo docker build -t image_name .
@@ -78,6 +72,31 @@ sudo docker compose build
 **to run docker images**
 ```
 sudo docker compose up
+```
+
+# Normal installation
+
+**for installing djnago**
+```
+pip install django
+```
+**install request library**
+```
+pip install requests = library
+```
+
+**installing redis library**
+```
+pip install redis
+```
+
+**install gunicorn**
+```
+pip install gunicorn
+```
+**django runserver**
+```
+python manage.py runserver
 ```
 
 ## Known issues
