@@ -10,9 +10,13 @@ The client has visually clear containerized posts, usefull when we want to remai
 about latest news, eventho hacker news is not a proper news site, but still its better
 platform to remain updated about tech updates, 
 
+### Redis
+
 It utilises redis cache so it won't burden server for normal actions,
 and increase response time, redis cache expires in around 1 minutes, till
 newer posts gets updated, cache applies when getting latest posts.
+
+### Containerisation
 
 The applications are containerised in indivisual docker conatainers,
 for django and nginx(dockerfile), and offical redis image, handled
@@ -20,6 +24,8 @@ together by docker compose.
     Where nginx is connected to frontend network (docker networking), 
 while django and redis are connected to backend network, nginx is 
 serving simple reverse proxy, django server serves it on port 8000. 
+
+### Key points
 
 1. Can view posts in bit visual UI.
 2. Mostly focused on latest posts, to remain updated.
@@ -35,6 +41,8 @@ serving simple reverse proxy, django server serves it on port 8000.
 ![Diagram.svg](./Diagram.svg)
 
 ## Instructions 
+
+### python
 
 **Python 3.8**
 
@@ -56,8 +64,10 @@ activating-
 ```
 source env/bin/activate
 ```
+### docker
 
 **To install docker**
+
 (Using curl)
 
 install curl-
@@ -72,6 +82,7 @@ execute the script-
 ```
 sudo sh get-docker.sh
 ```
+### docker compose standalone
 
 **Installing Docker Compose standalone**
 
@@ -99,6 +110,8 @@ docker-compose --version
 ```
  pip3 install -r requirements.txt
 ```
+### Using only dockerfile
+
 **Create docker image using single dockerfile**
 ```
 sudo docker build -t image_name .
@@ -107,10 +120,16 @@ sudo docker build -t image_name .
 ```
 sudo docker run -p 8000:8000 image_name
 ```
+
+### Gunicorn server
+
 **Running gunicorn server**
 ```
 gunicorn projectname.wsgi:application --bind 0.0.0.0:8000 
 ```
+### docker compose
+(which can handle everything, once defined)
+
 **To build images via docker compose**
 ```
 sudo docker compose build
