@@ -43,6 +43,7 @@ serving simple reverse proxy, django server serves it on port 8000.
 ## Instructions 
 
 ### python
+---
 
 **Python 3.8**
 
@@ -65,6 +66,7 @@ activating-
 source env/bin/activate
 ```
 ### docker
+---
 
 **To install docker**
 
@@ -83,6 +85,7 @@ execute the script-
 sudo sh get-docker.sh
 ```
 ### docker compose standalone
+---
 
 **Installing Docker Compose standalone**
 
@@ -111,6 +114,7 @@ docker-compose --version
  pip3 install -r requirements.txt
 ```
 ### Using only dockerfile
+---
 
 **Create docker image using single dockerfile**
 ```
@@ -122,12 +126,16 @@ sudo docker run -p 8000:8000 image_name
 ```
 
 ### Gunicorn server
+---
 
 **Running gunicorn server**
 ```
 gunicorn projectname.wsgi:application --bind 0.0.0.0:8000 
 ```
+
 ### docker compose
+---
+
 (which can handle everything, once defined)
 
 **To build images via docker compose**
@@ -165,6 +173,7 @@ python manage.py runserver
 ```
 
 ## Known issues
+
 1. Its been hard to parse paragraf tags comming from api, i have used django 
 template filters and other things to make it parse, but i don't know yet
 what more can be done.
