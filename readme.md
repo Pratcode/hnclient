@@ -15,16 +15,20 @@ and increase response time, redis cache expires in around 1 minutes, till
 newer posts gets updated, cache applies when getting latest posts.
 
 The applications are containerised in indivisual docker conatainers,
-for django and nginx(dockerfile), and offical redis image 
+for django and nginx(dockerfile), and offical redis image, handled
+together by docker compose. 
+    Where nginx is connected to frontend network (docker networking), 
+while django and redis are connected to backend network, nginx is 
+serving simple reverse proxy, django server serves it on port 8000. 
 
 1. Can view posts in bit visual UI.
 2. Mostly focused on latest posts, to remain updated.
 3. Redis cache is utilised to cache posts for certain time interval 
 - approximatly till new posts get updated.
-- it reduces number of server requests.
-- makes response time faster.
-4. utilized nginx as simple reverse proxy server to hide direct access.
-5. containerition of django, nginx and redis to handle complex dependencies.
+- It reduces number of server requests.
+- Makes response time faster.
+4. Utilized nginx as simple reverse proxy server to hide direct access.
+5. Containerition of django, nginx and redis to handle complex dependencies.
 
 ## Explainatory diagram
 
@@ -34,6 +38,7 @@ for django and nginx(dockerfile), and offical redis image
 
 **Python 3.8**
 
+(for linux)
 ```
 sudo apt install python3-pip
 ```
@@ -53,6 +58,7 @@ source env/bin/activate
 ```
 
 **To install docker**
+(Using curl)
 
 install curl-
 ```
@@ -69,6 +75,7 @@ sudo sh get-docker.sh
 
 **Installing Docker Compose standalone**
 
+(Using curl)
 ```
 sudo curl -SL https://github.com/docker/compose/releases/download/v2.15.1/docker-compose-linux-x86_64 -o /usr/local/bin/docker-compose
 ```
@@ -115,13 +122,15 @@ sudo docker compose up
 
 ## Normal installation
 
+(of dependencies)
+
 **For installing djnago**
 ```
 pip install django
 ```
 **Install request library**
 ```
-pip install requests = library
+pip install requests
 ```
 **Installing redis library**
 ```
