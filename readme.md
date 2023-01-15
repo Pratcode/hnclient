@@ -1,14 +1,27 @@
-# A hacker-News client from Algolia Search's API for Hacker News
+# A hacker-News client using Algolia Search's API for Hacker News
 
 Utilises API which built on top of Algolia Search's API for Hacker News,
-HN Search provides real-time full-text search for the HackerNews community site,
-The search backend is implemented using Algolia instant search engine.
+HN Search(Algolia Search's API) provides real-time full-text search for the HackerNews 
+community site, it's search backend is implemented using Algolia instant search engine.
 
-1. can view posts in bit better UI.
-2. mostly focused on latest posts, to remain updated.
-3. redis cache is utilised to cache posts for certain time interval 
+## Explaination
+
+The client has visually clear containerized posts, usefull when we want to remain updated
+about latest news, eventho hacker news is not a proper news site, but still its better
+platform to remain updated about tech updates, 
+
+It utilises redis cache so it won't burden server for normal actions,
+and increase response time, redis cache expires in around 1 minutes, till
+newer posts gets updated, cache applies when getting latest posts.
+
+The applications are containerised in indivisual docker conatainers,
+for django and nginx(dockerfile), and offical redis image 
+
+1. Can view posts in bit visual UI.
+2. Mostly focused on latest posts, to remain updated.
+3. Redis cache is utilised to cache posts for certain time interval 
 - approximatly till new posts get updated.
-- it reduces amount of server requests.
+- it reduces number of server requests.
 - makes response time faster.
 4. utilized nginx as simple reverse proxy server to hide direct access.
 5. containerition of django, nginx and redis to handle complex dependencies.
