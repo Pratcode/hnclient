@@ -42,7 +42,7 @@ serves it on port "8000".
 
 ## Instructions 
 
-### python
+### Python
 ---
 
 **Python 3.8**
@@ -65,7 +65,7 @@ activating-
 ```
 source env/bin/activate
 ```
-### docker
+### Docker
 ---
 
 **To install docker**
@@ -84,7 +84,7 @@ execute the script-
 ```
 sudo sh get-docker.sh
 ```
-### docker compose standalone
+### Docker Compose standalone
 ---
 
 **Installing Docker Compose standalone**
@@ -133,7 +133,7 @@ sudo docker run -p 8000:8000 image_name
 gunicorn projectname.wsgi:application --bind 0.0.0.0:8000 
 ```
 
-### docker compose
+### Docker Compose
 ---
 
 (which can handle everything, once defined)
@@ -147,7 +147,7 @@ sudo docker compose build
 sudo docker compose up
 ```
 
-## Normal installation
+## Normal Installation
 
 (of dependencies)
 
