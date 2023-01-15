@@ -1,42 +1,42 @@
 # A hacker-News client using Algolia Search's API for Hacker News
 
-Utilises API which built on top of Algolia Search's API for Hacker News,
-HN Search(Algolia Search's API) provides real-time full-text search for the HackerNews 
-community site, it's search backend is implemented using Algolia instant search engine.
+Utilizes API which built on top of Algolia Search's API for Hacker News,
+HN Search(Algolia Search's API) provides real-time full-text search for the Hacker News 
+community site, its search backend is implemented using Algolia instant search engine.
 
-## Explaination
+## Explanation
 
-The client has visually clear containerized posts, usefull when we want to remain updated
-about latest news, eventho hacker news is not a proper news site, but still its better
-platform to remain updated about tech updates, 
+The client has visually clear containerized posts, useful when we want to remain updated
+about latest news, even tho hacker news is not a proper news site, but still it's better
+platform to remain updated about tech updates. 
 
 ### Redis
 
-It utilises redis cache so it won't burden server for normal actions,
-and increase response time, redis cache expires in around 1 minutes, till
-newer posts gets updated, cache applies when getting latest posts.
+It utilizes Redis cache, so it won't burden the server for normal actions,
+and increase response time, Redis cache expires in around 1 minutes, till
+newer posts get updated, cache applies when getting latest posts.
 
-### Containerisation
+### Containerization
 
-The applications are containerised in indivisual docker conatainers,
-for django and nginx(dockerfile), and offical redis image, handled
-together by docker compose. 
-    Where nginx is connected to frontend network (docker networking), 
-while django and redis are connected to backend network, nginx is 
-serving simple reverse proxy, django server serves it on port 8000. 
+The applications are containerized in individual docker containers,
+for Django and Nginx (Dockerfile), and official Redis image, handled
+together by docker compose, where nginx is connected to frontend 
+network (docker networking), while Django and Redis are connected to 
+backend network, nginx is serving simple reverse proxy, Django server 
+serves it on port "8000".
 
 ### Key points
 
-1. Can view posts in bit visual UI.
+1. Can view posts in a bit of visual UI.
 2. Mostly focused on latest posts, to remain updated.
-3. Redis cache is utilised to cache posts for certain time interval 
-- approximatly till new posts get updated.
+3. Redis cache is utilized to cache posts for certain time interval, 
+- Approximately till new posts get updated.
 - It reduces number of server requests.
 - Makes response time faster.
 4. Utilized nginx as simple reverse proxy server to hide direct access.
-5. Containerition of django, nginx and redis to handle complex dependencies.
+5. Containerization of Django, nginx and Redis to handle complex dependencies.
 
-## Explainatory diagram
+## Explanatory diagram
 
 ![Diagram.svg](./Diagram.svg)
 
@@ -95,21 +95,21 @@ sudo curl -SL https://github.com/docker/compose/releases/download/v2.15.1/docker
 ```
 give the sudo permission to get it.
 
-**Apply executable permissons**
+**Apply Executable permissons**
 ```
 sudo chmod +x /user/local/bin/docker-compose
 ```
 Compose standalone uses the -compose syntax instead of 
 the current standard syntax compose.
 
-**Test and execute compose commands using docker-compose**
+**Test and Execute compose commands using docker-compose**
 
 for example-
 ```
 docker-compose --version
 ```
 
-**To indivisually  install requirements**
+**To individually  install requirements**
 ```
  pip3 install -r requirements.txt
 ```
@@ -151,7 +151,7 @@ sudo docker compose up
 
 (of dependencies)
 
-**For installing djnago**
+**For installing django**
 ```
 pip install django
 ```
@@ -174,12 +174,12 @@ python manage.py runserver
 
 ## Known issues
 
-1. Its been hard to parse paragraf tags comming from api, i have used django 
-template filters and other things to make it parse, but i don't know yet
+1. It's been hard to parse paragraph tags coming from API, I have used Django 
+template filters and other things to make it parse, but I don't know yet
 what more can be done.
 
-2. UI is still not perfect since i didn't used much of frontend technologies,
-and my lack of knowledge this portion.
+2. UI is still not perfect since I didn't use much of frontend technologies,
+and my lack of knowledge in this portion.
 
-3. Redis cache only helps in lastest posts, we have to still have to
-request server in case of getting perticular post.
+3. Redis cache only helps in latest posts, we have to still have to
+request server in case of getting particular post.
